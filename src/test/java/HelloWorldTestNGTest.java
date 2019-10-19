@@ -1,6 +1,6 @@
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-public class HelloWorldTest {
+public class HelloWorldTestNGTest {
 
     @Test
     void testMain() {
@@ -9,7 +9,7 @@ public class HelloWorldTest {
 
         // Run the test
         HelloWorld.main(args);
-
+        System.out.println("TestNG");
         // Verify the results
     }
 }
