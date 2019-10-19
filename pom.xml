@@ -57,6 +57,13 @@
                 </configuration>
             </plugin>
             <!-- End Jar plugin -->
+            <!-- Site plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.8.2</version>
+            </plugin>
+            <!-- End Site plugin -->
         </plugins>
     </build>
     <!-- ############################################################################### -->
