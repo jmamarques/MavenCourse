@@ -1,15 +1,14 @@
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package models;
+
+import lombok.*;
 
 /**
  * JMA - 19/10/2019 19:50
  **/
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     private String firstName;
