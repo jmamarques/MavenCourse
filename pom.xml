@@ -22,6 +22,11 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.8.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.7</version>
+        </dependency>
     </dependencies>
     <!-- ############################################################################### -->
     <!-- ############################################BUILD############################## -->
@@ -64,6 +69,25 @@
                 <version>3.8.2</version>
             </plugin>
             <!-- End Site plugin -->
+            <!-- generate -->
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>0.5.1</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
+                    <targetPackage>jma.springframework.boot</targetPackage>
+                    <useCommonsLang3>true</useCommonsLang3>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--end generate -->
         </plugins>
     </build>
     <!-- ############################################################################### -->
