@@ -12,32 +12,26 @@
     <artifactId>maven</artifactId>
     <version>3.0.2-SNAPSHOT</version>
     <name>sbm</name>
+    <packaging>pom</packaging>
     <description>Maven Course - Spring Boot</description>
+    <modules>
+        <module>web-app</module>
+        <module>web-model</module>
+    </modules>
 
     <properties>
         <java.version>11</java.version>
         <soem.custom.prop>1.99</soem.custom.prop>
+        <!--<spring-boot.repackage.skip>true</spring-boot.repackage.skip>-->
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -53,59 +47,6 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>auto-clean</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <!-- Build info prop - with base in actuator-->
-                    <execution>
-                        <id>build-info</id>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                        <configuration>
-                            <additionalProperties>
-                                <java.version>${java.version}</java.version>
-                                <soem.custom.prop>${soem.custom.prop}</soem.custom.prop>
-                            </additionalProperties>
-                        </configuration>
-                    </execution>
-                    <!-- End Build info prop-->
-                    <execution>
-                        <id>pre-it</id>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>pos-it</id>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- -->
-            <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+
 
 </project>

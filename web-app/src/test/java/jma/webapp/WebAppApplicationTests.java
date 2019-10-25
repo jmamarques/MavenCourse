@@ -1,10 +1,10 @@
-package jma.maven;
+package jma.webapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SbmApplicationTests {
+class WebAppApplicationTests {
 
     @Test
     void contextLoads() {
