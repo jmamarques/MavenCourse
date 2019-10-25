@@ -1,13 +1,13 @@
-package jma.springframework.boot.maven;
+package jma.maven;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MavenApplication {
+public class SbmApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MavenApplication.class, args);
+        SpringApplication.run(SbmApplication.class, args);
     }
 
 }
