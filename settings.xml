@@ -12,9 +12,14 @@
             <id>packagecloud.snapshot</id>
             <password>47fd797eff2bbc3b4ea1879de3020269071f6cb006515e93</password>
         </server>
-        <!-- create a snapshot repository -->
+        <!-- create a snapshot repository and release-->
         <server>
             <id>nexus-snapshot</id>
+            <username>admin</username>
+            <password>admin123</password>
+        </server>
+        <server>
+            <id>nexus-release</id>
             <username>admin</username>
             <password>admin123</password>
         </server>

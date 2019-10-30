@@ -10,7 +10,7 @@
     </parent>
     <groupId>jma</groupId>
     <artifactId>maven</artifactId>
-    <version>3.0.2-SNAPSHOT</version>
+    <version>3.0.3</version>
     <name>sbm</name>
     <description>Maven Course - Spring Boot</description>
 
@@ -66,15 +66,26 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>nexus-release</id>
+            <url>http://192.168.3.12:8081/repository/nexus-release/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <!-- END nexus create a snapshot-->
     </repositories>
     <!-- END REPOSITORIES -->
-    <!-- nexus create a snapshot-->
+    <!-- nexus create a snapshot and release-->
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshot</id>
             <url>http://192.168.3.12:8081/repository/nexus-snapshot/</url>
         </snapshotRepository>
+        <repository>
+            <id>nexus-release</id>
+            <url>http://192.168.3.12:8081/repository/nexus-release/</url>
+        </repository>
     </distributionManagement>
-    <!-- END nexus create a snapshot-->
+    <!-- END nexus create a snapshot and release-->
 </project>
