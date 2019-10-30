@@ -51,12 +51,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- JBOSS -->
-        <dependency>
-            <groupId>org.jboss.ejb3</groupId>
-            <artifactId>jboss-ejb3-api</artifactId>
-            <version>3.1.0</version>
-        </dependency>
         <!-- add here oracle jar
         mvn install:install-file -Dfile=./ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0.1
         respect all fields
@@ -64,83 +58,23 @@
     </dependencies>
     <!-- REPOSITORIES -->
     <repositories>
-        <!-- JBOSS or user settings-->
+        <!-- nexus create a snapshot-->
         <repository>
-            <id>redhat-ga</id>
-            <url>https://maven.repository.redhat.com/ga/</url>
+            <id>nexus-snapshot</id>
+            <url>http://192.168.3.12:8081/repository/nexus-snapshot/</url>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
-        <!-- END JBOSS -->
+        <!-- END nexus create a snapshot-->
     </repositories>
     <!-- END REPOSITORIES -->
-    <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>auto-clean</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <!-- Build info prop - with base in actuator-->
-                    <execution>
-                        <id>build-info</id>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                        <configuration>
-                            <additionalProperties>
-                                <java.version>${java.version}</java.version>
-                                <soem.custom.prop>${soem.custom.prop}</soem.custom.prop>
-                            </additionalProperties>
-                        </configuration>
-                    </execution>
-                    <!-- End Build info prop-->
-                    <execution>
-                        <id>pre-it</id>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>pos-it</id>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-        <extensions>
-            <extension>
-                <groupId>io.packagecloud.maven.wagon</groupId>
-                <artifactId>maven-packagecloud-wagon</artifactId>
-                <version>0.0.4</version>
-            </extension>
-        </extensions>
-    </build>
-
+    <!-- nexus create a snapshot-->
     <distributionManagement>
-        <repository>
-            <id>packagecloud.releases</id>
-            <url>packagecloud+https://packagecloud.io/jmamarques/release</url>
-        </repository>
         <snapshotRepository>
-            <id>packagecloud.snapshot</id>
-            <url>packagecloud+https://packagecloud.io/jmamarques/snapshot</url>
+            <id>nexus-snapshot</id>
+            <url>http://192.168.3.12:8081/repository/nexus-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
-
+    <!-- END nexus create a snapshot-->
 </project>
