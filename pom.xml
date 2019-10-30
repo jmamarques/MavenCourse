@@ -67,7 +67,7 @@
 
     <distributionManagement>
         <repository>
-            <id>packagecloud.releases</id>
+            <id>packagecloud.release</id>
             <url>packagecloud+https://packagecloud.io/jmamarques/release</url>
         </repository>
         <snapshotRepository>
