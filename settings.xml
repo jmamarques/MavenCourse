@@ -33,6 +33,14 @@
             <url>http://uk.maven.org/maven2</url>
             <mirrorOf>central</mirrorOf>
         </mirror>
+        <!-- nexus group -->
+        <mirror>
+            <id>central</id>
+            <name>central</name>
+            <url>http://192.168.3.12:8081/repository/nexus-group/</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+        <!--End nexus group -->
     </mirrors>
     <profiles>
         <profile>

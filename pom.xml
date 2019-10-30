@@ -56,26 +56,6 @@
         respect all fields
         -->
     </dependencies>
-    <!-- REPOSITORIES -->
-    <repositories>
-        <!-- nexus create a snapshot-->
-        <repository>
-            <id>nexus-snapshot</id>
-            <url>http://192.168.3.12:8081/repository/nexus-snapshot/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>nexus-release</id>
-            <url>http://192.168.3.12:8081/repository/nexus-release/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <!-- END nexus create a snapshot-->
-    </repositories>
-    <!-- END REPOSITORIES -->
     <!-- nexus create a snapshot and release-->
     <distributionManagement>
         <snapshotRepository>
