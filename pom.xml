@@ -76,53 +76,6 @@
     </repositories>
     <!-- END REPOSITORIES -->
     <build>
-        <plugins>
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>auto-clean</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>clean</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <!-- Build info prop - with base in actuator-->
-                    <execution>
-                        <id>build-info</id>
-                        <goals>
-                            <goal>build-info</goal>
-                        </goals>
-                        <configuration>
-                            <additionalProperties>
-                                <java.version>${java.version}</java.version>
-                                <soem.custom.prop>${soem.custom.prop}</soem.custom.prop>
-                            </additionalProperties>
-                        </configuration>
-                    </execution>
-                    <!-- End Build info prop-->
-                    <execution>
-                        <id>pre-it</id>
-                        <goals>
-                            <goal>start</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>pos-it</id>
-                        <goals>
-                            <goal>stop</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
         <extensions>
             <extension>
                 <groupId>io.packagecloud.maven.wagon</groupId>
@@ -132,15 +85,68 @@
         </extensions>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>packagecloud.releases</id>
-            <url>packagecloud+https://packagecloud.io/jmamarques/release</url>
-        </repository>
-        <snapshotRepository>
-            <id>packagecloud.snapshot</id>
-            <url>packagecloud+https://packagecloud.io/jmamarques/snapshot</url>
-        </snapshotRepository>
-    </distributionManagement>
-
+    <profiles>
+        <profile>
+            <id>springprofile</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>auto-clean</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <executions>
+                            <!-- Build info prop - with base in actuator-->
+                            <execution>
+                                <id>build-info</id>
+                                <goals>
+                                    <goal>build-info</goal>
+                                </goals>
+                                <configuration>
+                                    <additionalProperties>
+                                        <java.version>${java.version}</java.version>
+                                        <soem.custom.prop>${soem.custom.prop}</soem.custom.prop>
+                                    </additionalProperties>
+                                </configuration>
+                            </execution>
+                            <!-- End Build info prop-->
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <!-- active this profile by default -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>packagecloud</id>
+            <!-- we can not do extensions inside of profiles it's a limitation of maven -->
+            <distributionManagement>
+                <repository>
+                    <id>packagecloud.releases</id>
+                    <url>packagecloud+https://packagecloud.io/jmamarques/release</url>
+                </repository>
+                <snapshotRepository>
+                    <id>packagecloud.snapshot</id>
+                    <url>packagecloud+https://packagecloud.io/jmamarques/snapshot</url>
+                </snapshotRepository>
+            </distributionManagement>
+            <!-- active this profile by default -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 </project>
