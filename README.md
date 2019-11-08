@@ -1,5 +1,6 @@
 # MavenCourse
 Learn more about maven to acquire : mature dependency Management and mature Project Build Lifecycle
+[![CircleCI](https://circleci.com/gh/joaoMAMarques/MavenCourse.svg?style=svg)](https://circleci.com/gh/joaoMAMarques/MavenCourse)
 
 # TestNG
 Configuring TestNG with maven
