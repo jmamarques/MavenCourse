@@ -24,7 +24,7 @@
     <scm>
         <developerConnection>scm:git:https://github.com/joaoMAMarques/MavenCourse.git</developerConnection>
         <url>https://github.com/joaoMAMarques/MavenCourse</url>
-        <tag>maven-1.8</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencies>
