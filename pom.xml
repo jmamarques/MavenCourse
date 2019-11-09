@@ -181,6 +181,14 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <configuration>
+                    <scmCommentPrefix>[maven-release-plugin] [skip ci]</scmCommentPrefix>
+                </configuration>
+            </plugin>
         </plugins>
         <extensions>
             <extension>
@@ -189,6 +197,7 @@
                 <version>0.0.6</version>
             </extension>
         </extensions>
+
     </build>
 
     <distributionManagement>
