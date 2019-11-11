@@ -38,7 +38,7 @@ jobs:
 
             # run tests!
             #- run: mvn integration-test
-            #- run: mvn deploy -s .circleci/settings.xml
-            - run: git config user.email "jm.a.marques.93@gmail.com"
-            - run: git config user.name "Via CircleCI"
-            - run: mvn compile --batch-mode release:prepare release:perform -s .circleci/settings.xml
+            - run: mvn deploy -s .circleci/settings.xml
+            #- run: git config user.email "jm.a.marques.93@gmail.com"
+            #- run: git config user.name "Via CircleCI"
+            #- run: mvn compile --batch-mode release:prepare release:perform -s .circleci/settings.xml
