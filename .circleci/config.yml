@@ -36,7 +36,7 @@ jobs:
                       - ~/.m2
                   key: v1-dependencies-{{ checksum "pom.xml" }}
 
-            # run tests!
+            # run tests!k
             #- run: mvn integration-test
             - run: mvn deploy -s .circleci/settings.xml
             #- run: git config user.email "jm.a.marques.93@gmail.com"
